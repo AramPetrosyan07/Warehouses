@@ -8,6 +8,7 @@ interface SidebarNavItemProps {
   isActive?: boolean;
   onClick?: () => void;
   className?: string;
+  isCollapsed?: boolean;
 }
 
 export const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
@@ -17,13 +18,14 @@ export const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
   isActive = false,
   onClick,
   className = "",
+  isCollapsed = false,
 }) => {
   const itemClass = `sidebar-nav-item ${isActive ? "active" : ""} ${className}`;
 
   const content = (
     <>
       {icon && <span className="nav-icon">{icon}</span>}
-      <span className="nav-label">{label}</span>
+      {!isCollapsed && <span className="nav-label">{label}</span>}
     </>
   );
 

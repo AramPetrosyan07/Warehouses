@@ -7,12 +7,14 @@ interface SidebarNavProps {
   items: NavItem[];
   activeItemId?: string;
   className?: string;
+  isCollapsed?: boolean;
 }
 
 export const SidebarNav: React.FC<SidebarNavProps> = ({
   items,
   activeItemId,
   className = "",
+  isCollapsed = false,
 }) => {
   return (
     <nav className={`sidebar-nav ${className}`}>
@@ -25,6 +27,7 @@ export const SidebarNav: React.FC<SidebarNavProps> = ({
               label={item.label}
               isActive={activeItemId === item.id}
               onClick={item.onClick}
+              isCollapsed={isCollapsed}
             />
           </li>
         ))}

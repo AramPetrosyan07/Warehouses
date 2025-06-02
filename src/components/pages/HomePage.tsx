@@ -13,8 +13,8 @@ const HomePage: React.FC = () => {
         <h1>Home Page</h1>
         <p>Counter: {count}</p>
 
-        <button onClick={() => dispatch(increment())}>+</button>
-        <button onClick={() => dispatch(decrement())}>-</button>
+        {/* <button onClick={() => dispatch(increment())}>+</button>
+        <button onClick={() => dispatch(decrement())}>-</button> */}
       </div>
     </DashboardLayout>
   );

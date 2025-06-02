@@ -28,7 +28,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <aside className={sidebarClass}>
       <div className="sidebar-header">
-        <SidebarLogo logoText={logoText} logoIcon={logoIcon} />
+        {/* <SidebarLogo logoText={logoText} logoIcon={logoIcon} /> */}
         {onToggleCollapse && (
           <button
             className="sidebar-toggle"
@@ -41,11 +41,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       <div className="sidebar-content">
-        <SidebarNav items={navItems} activeItemId={activeItemId} />
-      </div>
-
-      <div className="sidebar-footer">
-        {/* Footer content can go here - user profile, logout, etc */}
+        <SidebarNav items={navItems} activeItemId={activeItemId} isCollapsed={isCollapsed} />
       </div>
     </aside>
   );

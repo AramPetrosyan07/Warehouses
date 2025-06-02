@@ -58,4 +58,33 @@ $spacing-unit: 10px;
       }
     }
   }
+ &.collapsed {
+    width: 60px; // or another compact size
+
+    .sidebar-logo {
+      justify-content: center;
+
+      .logo-text {
+        display: none;
+      }
+    }
+
+    .sidebar-nav {
+      .sidebar-nav-item {
+        justify-content: center;
+
+        .label {
+          display: none;
+        }
+
+        .icon {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .sidebar-toggle {
+      align-self: center;
+    }
+  }
 }

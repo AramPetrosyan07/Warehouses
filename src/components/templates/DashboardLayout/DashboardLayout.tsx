@@ -31,7 +31,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
         activeItemId={activeItem}
         isCollapsed={isCollapsed}
         onToggleCollapse={toggleCollapse}
-        logoText="My Dashboard"
+        // logoText="My Dashboard"
         logoIcon="🚀"
       />
       <main className="main-content">
