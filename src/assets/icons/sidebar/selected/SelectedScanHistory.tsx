@@ -1,4 +1,4 @@
-export const SeletedScanHistory = () => {
+export const SelectedScanHistory = () => {
   return (
     <svg
       width="30"

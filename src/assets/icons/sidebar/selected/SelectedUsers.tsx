@@ -1,4 +1,4 @@
-export const SeletedUsers = () => {
+export const SelectedUsers = () => {
   return (
     <svg
       width="30"

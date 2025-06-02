@@ -1,0 +1,28 @@
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  background-color: #f8f9fa;
+  transition: margin-left 0.3s ease;
+}
+
+.content-wrapper {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// Mobile responsiveness
+@media (max-width: 768px) {
+  .dashboard-layout {
+    position: relative;
+  }
+
+  .main-content {
+    width: 100%;
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,35 @@
+.sidebar-nav {
+  .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .nav-item {
+    // Reset default list item styles
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// Navigation sections (if you want to group nav items)
+.nav-section {
+  margin-bottom: 1.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.nav-section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #6c757d;
+  padding: 0 1rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}

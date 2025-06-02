@@ -1,4 +1,4 @@
-export const SeletedRoles = () => {
+export const SelectedRoles = () => {
   return (
     <svg
       width="30"
