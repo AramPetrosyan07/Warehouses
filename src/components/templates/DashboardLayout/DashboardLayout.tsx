@@ -3,6 +3,7 @@ import { Sidebar } from "../../organisms/Sidebar";
 import { useSidebar } from "../../../hooks/useSidebar";
 import { navigationItems } from "../../../config/navigation";
 import "./DashboardLayout.scss";
+import { MainLogo } from "../../../assets/icons/sidebar/ordinary/MainLogo";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -16,6 +17,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
   const { isCollapsed, activeItem, toggleCollapse, setActive } = useSidebar();
 
   const handleNavItemClick = (itemId: string) => {
+    console.log("itemId", itemId);
     setActive(itemId);
   };
 
@@ -32,7 +34,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
         isCollapsed={isCollapsed}
         onToggleCollapse={toggleCollapse}
         // logoText="My Dashboard"
-        logoIcon="🚀"
+        logoIcon={<MainLogo isCollapsed={isCollapsed} />}
       />
       <main className="main-content">
         <div className="content-wrapper">{children}</div>

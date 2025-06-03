@@ -1,23 +1,15 @@
+@use '../../../styles/variables.scss' as *;
+
 .sidebar-logo {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-
-  .logo-icon {
-    font-size: 1.5rem;
-    min-width: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .logo-text {
-    margin: 0;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #343a40;
-    transition: opacity 0.3s ease;
-    white-space: nowrap;
+  width: 114px;
+  height: 85px;
+  // display: flex;
+  // align-items: center;
+  // gap: 0.75rem;
+// background-color: $red-50;
+ &.collapsed {
+    width: 62px;
+    height: 47px;
   }
 }
 

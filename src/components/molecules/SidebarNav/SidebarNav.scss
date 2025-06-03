@@ -5,11 +5,12 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+
+    row-gap: 25px;
+    // background-color: #F52424;
   }
 
   .nav-item {
-    // Reset default list item styles
     margin: 0;
     padding: 0;
   }

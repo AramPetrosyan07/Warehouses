@@ -1,0 +1,56 @@
+@use "../../../../styles/variables.scss" as *;
+
+// Typography Variants
+.text-h1 {
+  font-size: 40px;
+}
+
+.text-h2 {
+  font-size: 24px;
+}
+
+.text-h3 {
+  font-size: 18px;
+}
+
+.text-body1 {
+  font-size: 16px;
+}
+
+.text-body2 {
+  font-size: 14px;
+}
+
+.text-caption {
+  font-size: 12px;
+}
+
+.text-small {
+  font-size: 10px;
+}
+
+// Font Weights
+.font-regular {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-medium-underline {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.nav-label {
+  color: $dark-blue-10;
+}
+
+.activeLabel {
+  color: $orange-60;
+}

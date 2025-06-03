@@ -3,6 +3,7 @@ import { SidebarLogo } from "../../atoms/SidebarLogo";
 import { SidebarNav } from "../../molecules/SidebarNav";
 import "./Sidebar.scss";
 import type { NavItem } from "../../../types/nav.types";
+import { Arrow } from "../../../assets/icons/sidebar/ordinary/Arrow";
 
 interface SidebarProps {
   navItems: NavItem[];
@@ -29,19 +30,21 @@ export const Sidebar: React.FC<SidebarProps> = ({
     <aside className={sidebarClass}>
       <div className="sidebar-header">
         {/* <SidebarLogo logoText={logoText} logoIcon={logoIcon} /> */}
-        {onToggleCollapse && (
-          <button
-            className="sidebar-toggle"
-            onClick={onToggleCollapse}
-            aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-          >
-            {isCollapsed ? "→" : "←"}
-          </button>
+        {logoIcon && (
+          <SidebarLogo logoIcon={logoIcon} isCollapsed={isCollapsed} />
         )}
+
+        <button className="sidebar-toggle" onClick={onToggleCollapse}>
+          {isCollapsed ? <Arrow inverted={true} /> : <Arrow />}
+        </button>
       </div>
 
       <div className="sidebar-content">
-        <SidebarNav items={navItems} activeItemId={activeItemId} isCollapsed={isCollapsed} />
+        <SidebarNav
+          items={navItems}
+          activeItemId={activeItemId}
+          isCollapsed={isCollapsed}
+        />
       </div>
     </aside>
   );
