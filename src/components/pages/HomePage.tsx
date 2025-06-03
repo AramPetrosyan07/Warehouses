@@ -2,19 +2,15 @@ import React from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { increment, decrement } from "../../store/slices/usersSlice";
 import { DashboardLayout } from "../templates/DashboardLayout";
+import { WarehouseListTemplate } from "../templates/WarehouseListTemplate/WarehouseListTemplate";
 
 const HomePage: React.FC = () => {
   const count = useAppSelector((state) => state.users.value);
   const dispatch = useAppDispatch();
 
-  return (
-    <div>
-      <h1>Home Page</h1>
-      <p>Counter: {count}</p>
+  // we should fetch users here
 
-     
-    </div>
-  );
+  return <WarehouseListTemplate />;
 };
 
 export default HomePage;
