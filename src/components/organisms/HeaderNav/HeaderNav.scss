@@ -1,5 +1,4 @@
 @use "../../../styles/variables.scss" as *;
-
 .header-nav {
   display: flex;
   justify-content: space-between;
@@ -15,20 +14,37 @@
 
   .header-left {
     gap: 8px;
+
+    .places-divider {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .warehouses-divider {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      .warehouses-count {
+        width: 50px;
+        height: 28px;
+        background-color: $gray-30;
+        border-radius: 4px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   }
 
   .header-right {
     gap: 10px;
   }
 
-  .dark-blue-40{
-   color: $dark-blue-40
+  .dark-blue-40 {
+    color: $dark-blue-40;
   }
-  
-  //   .header-left div,
-  //   .header-right div {
-  //     padding: 8px 12px;
-  //     background-color: #f0f0f0;
-  //     border-radius: 4px;
-  //   }
 }
+
