@@ -1,50 +1,73 @@
 @use "../../../styles/variables.scss" as *;
-.header-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: red;
-  margin: 11px 24px;
 
-  .header-left,
-  .header-right {
+.container {
+  border-bottom: 1px solid $gray-30;
+
+  .header-nav {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-  }
+    // background-color: red;
+    margin: 11px 24px;
 
-  .header-left {
-    gap: 8px;
-
-    .places-divider {
+    .header-left,
+    .header-right {
       display: flex;
       align-items: center;
-      gap: 8px;
     }
 
-    .warehouses-divider {
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    .header-left {
+      gap: 8px;
 
-      .warehouses-count {
-        width: 50px;
-        height: 28px;
-        background-color: $gray-30;
-        border-radius: 4px;
-
+      .places-divider {
         display: flex;
-        justify-content: center;
         align-items: center;
+        gap: 8px;
+      }
+
+      .warehouses-divider {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        .warehouses-count {
+          width: 50px;
+          height: 28px;
+          background-color: $gray-30;
+          border-radius: 4px;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
       }
     }
-  }
 
-  .header-right {
-    gap: 10px;
-  }
+    .header-right {
+      display: flex;
+      gap: clamp(15px, 1vw, 40px);
 
-  .dark-blue-40 {
-    color: $dark-blue-40;
+      .user-profile-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .disjunctive-line {
+          width: 1px;
+          height: 21px;
+          background-color: $gray-30;
+        }
+
+        .logout {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+      }
+    }
+
+    .dark-blue-40 {
+      color: $dark-blue-40;
+    }
   }
 }
-

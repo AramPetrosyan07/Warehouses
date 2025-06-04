@@ -1,0 +1,64 @@
+@use "../../../styles/variables.scss" as *;
+
+.numberSelector {
+  width: 38px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $gray-40;
+  border-radius: 6px;
+  position: relative;
+  background-color: white;
+  cursor: pointer;
+  padding-right: 12px;
+
+  // Hover state for better UX
+  //   &:hover {
+  //     border-color: darken($gray-40, 10%);
+  //   }
+
+  //   // Focus state when select is focused
+  //   &:focus-within {
+  //     border-color: #007bff;
+  //     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  //   }
+
+  .arrow {
+    position: absolute;
+    right: 5px;
+    pointer-events: none;
+    transition: transform 0.2s ease;
+  }
+
+  // Rotate arrow when select is focused (if supported by browser)
+  &:focus-within .arrow {
+    transform: rotate(180deg);
+  }
+}
+
+.nativeSelect {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  outline: none;
+  color: inherit;
+
+  // Remove default focus styles
+  &:focus {
+    outline: none;
+  }
+
+  // Style for disabled state (if needed in the future)
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}

@@ -1,0 +1,53 @@
+@use "../../../styles/variables.scss" as *;
+
+.dark-blue-90 {
+  color: $dark-blue-90;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .left_controller {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .table_controller {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+  .right_controller {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .create_warehouse {
+      padding: 0 16px;
+      height: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $orange-60;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: $orange-50;
+      }
+
+      &:active {
+        background-color: $orange-90;
+      }
+    }
+
+    .create_warehouse_text {
+      color: white;
+    }
+  }
+}

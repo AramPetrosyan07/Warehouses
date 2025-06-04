@@ -1,0 +1,25 @@
+@use "../../../styles/variables.scss" as *;
+
+.notifications {
+    width: 40px;
+    height: 40px;
+    background-color: $gray-30; // Replace with your actual gray variable or hex code
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  
+    &.has-notification::after {
+      content: '';
+      position: absolute;
+      top: 12px;
+      right: 9px;
+      width: 10px;
+      height: 10px;
+      background-color: $green-50; // Green
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px white; // Optional outline
+    }
+  }
+  

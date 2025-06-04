@@ -1,0 +1,30 @@
+@use "../../../styles/variables.scss" as *;
+
+.container {
+  display: flex;
+
+  .item {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #e9eaed;
+
+    &.left {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+
+    &.right {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    &.selected {
+      border: 1px solid #e9eaed;
+      background-color: $dark-blue-10;
+    }
+  }
+}

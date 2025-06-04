@@ -1,0 +1,14 @@
+@use "../../../styles/variables.scss" as *;
+
+.export{
+    padding: 9px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid $dark-blue-40; 
+    border-radius: 6px;
+}
+
+.dark_blue_50{
+    color: $dark-blue-50;
+}
