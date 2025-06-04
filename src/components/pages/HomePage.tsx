@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { increment, decrement } from "../../store/slices/usersSlice";
-import { DashboardLayout } from "../templates/DashboardLayout";
+
 import { WarehouseListTemplate } from "../templates/WarehouseListTemplate/WarehouseListTemplate";
+import { getUsers } from "../../store/thunks/usersThunks";
 
 const HomePage: React.FC = () => {
-  const count = useAppSelector((state) => state.users.value);
+  const users = useAppSelector((state) => state.users.users);
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getUsers());
+  }, [dispatch]);
 
   // we should fetch users here
 

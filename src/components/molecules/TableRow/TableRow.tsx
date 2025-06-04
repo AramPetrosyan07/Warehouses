@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./TableRow.scss";
+import { Eye } from "../../../assets/icons/warehouses/Eye";
+import { useAppSelector } from "../../../hooks/redux";
 
 interface TableRow {
   id: number;
@@ -10,94 +12,21 @@ interface TableRow {
   products: string;
 }
 
-export const TableRow: React.FC = () => {
+export function TableRow() {
+  const users = useAppSelector((state) => state.users.users);
   const [sortColumn, setSortColumn] = useState<string>("");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [currentPage, setCurrentPage] = useState(1);
   const entriesPerPage = 10;
 
-  const sampleData: TableRow[] = [
-    {
-      id: 1,
-      name: "Razmik's room",
-      organization: "ITResources",
-      address: "Hakob Hakobyan 3",
-      worker: "-",
-      products: "573",
-    },
-    {
-      id: 2,
-      name: "Razmik's room",
-      organization: "ITResources",
-      address: "Hakob Hakobyan 3",
-      worker: "Pargev",
-      products: "573",
-    },
-    {
-      id: 3,
-      name: "Razmik's room",
-      organization: "ITResources",
-      address: "Hakob Hakobyan 3",
-      worker: "-",
-      products: "573",
-    },
-    {
-      id: 4,
-      name: "Razmik's room",
-      organization: "ITResources",
-      address: "Hakob Hakobyan 3",
-      worker: "-",
-      products: "573",
-    },
-    {
-      id: 5,
-      name: "Razmik's room",
-      organization: "ITResources",
-      address: "Hakob Hakobyan 3",
-      worker: "Pargev, Mane, Razmik",
-      products: "573",
-    },
-    {
-      id: 6,
-      name: "Razmik's room",
-      organization: "ITResources",
-      address: "Hakob Hakobyan 3",
-      worker: "-",
-      products: "573",
-    },
-    {
-      id: 7,
-      name: "Razmik's room",
-      organization: "ITResources",
-      address: "Hakob Hakobyan 3",
-      worker: "Pargev",
-      products: "573",
-    },
-    {
-      id: 8,
-      name: "Razmik's room",
-      organization: "ITResources",
-      address: "Hakob Hakobyan 3",
-      worker: "Pargev",
-      products: "573",
-    },
-    {
-      id: 9,
-      name: "Razmik's room",
-      organization: "ITResources",
-      address: "Hakob Hakobyan 3",
-      worker: "Pargev",
-      products: "573",
-    },
-    {
-      id: 10,
-      name: "Razmik's room",
-      organization: "ITResources",
-      address: "Hakob Hakobyan 3",
-      worker: "Pargev, Razmik",
-      products: "573",
-    },
-  ];
+  const tableData: TableRow[] = users.map((user: any) => ({
+    id: user.id,
+    name: user.name,
+    organization: user.company.name,
+    address: user.address.street,
+    worker: user.username,
+    products: user.email,
+  }));
 
   const handleSort = (column: string) => {
     if (sortColumn === column) {
@@ -108,14 +37,57 @@ export const TableRow: React.FC = () => {
     }
   };
 
-  const getSortIcon = (column: string) => {
-    if (sortColumn !== column) return "↕";
-    return sortDirection === "asc" ? "↑" : "↓";
+  const getSortArrows = (column: string) => {
+    const isActive = sortColumn === column;
+    return (
+      <span className={`sort-arrows ${isActive ? "active" : ""}`}>
+        <span
+          className={`arrow up ${
+            isActive && sortDirection === "asc" ? "active" : ""
+          }`}
+        >
+          ▲
+        </span>
+        <span
+          className={`arrow down ${
+            isActive && sortDirection === "desc" ? "active" : ""
+          }`}
+        >
+          ▼
+        </span>
+      </span>
+    );
   };
 
-  const totalPages = Math.ceil(sampleData.length / entriesPerPage);
+  const sortedData = React.useMemo(() => {
+    if (!sortColumn) return tableData;
+
+    return [...tableData].sort((a, b) => {
+      const aValue = a[sortColumn as keyof TableRow];
+      const bValue = b[sortColumn as keyof TableRow];
+
+      // Handle numeric sorting for id and products
+      if (sortColumn === "id" || sortColumn === "products") {
+        const aNum = typeof aValue === "string" ? parseInt(aValue) : aValue;
+        const bNum = typeof bValue === "string" ? parseInt(bValue) : bValue;
+        return sortDirection === "asc" ? aNum - bNum : bNum - aNum;
+      }
+
+      // Handle string sorting
+      const aStr = String(aValue).toLowerCase();
+      const bStr = String(bValue).toLowerCase();
+
+      if (sortDirection === "asc") {
+        return aStr.localeCompare(bStr);
+      } else {
+        return bStr.localeCompare(aStr);
+      }
+    });
+  }, [sortColumn, sortDirection, tableData]);
+
+  const totalPages = Math.ceil(sortedData.length / entriesPerPage);
   const startEntry = (currentPage - 1) * entriesPerPage + 1;
-  const endEntry = Math.min(currentPage * entriesPerPage, sampleData.length);
+  const endEntry = Math.min(currentPage * entriesPerPage, sortedData.length);
 
   return (
     <div className="data-table-container">
@@ -124,31 +96,43 @@ export const TableRow: React.FC = () => {
           <thead>
             <tr>
               <th onClick={() => handleSort("id")} className="sortable">
-                H/H {getSortIcon("id")}
+                <span className="sort_lable">H/H</span>
+
+                {getSortArrows("id")}
               </th>
               <th onClick={() => handleSort("name")} className="sortable">
-                Name {getSortIcon("name")}
+                <span className="sort_lable">Name</span>
+
+                {getSortArrows("name")}
               </th>
               <th
                 onClick={() => handleSort("organization")}
                 className="sortable"
               >
-                Organization {getSortIcon("organization")}
+                <span className="sort_lable">Organization</span>
+
+                {getSortArrows("organization")}
               </th>
               <th onClick={() => handleSort("address")} className="sortable">
-                Address {getSortIcon("address")}
+                <span className="sort_lable">Address</span>
+
+                {getSortArrows("address")}
               </th>
               <th onClick={() => handleSort("worker")} className="sortable">
-                Worker {getSortIcon("worker")}
+                <span className="sort_lable">Worker</span>
+                {getSortArrows("worker")}
               </th>
               <th onClick={() => handleSort("products")} className="sortable">
-                Products {getSortIcon("products")}
+                <span className="sort_lable">Products</span>
+
+                {getSortArrows("products")}
               </th>
+
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {sampleData
+            {sortedData
               .slice(
                 (currentPage - 1) * entriesPerPage,
                 currentPage * entriesPerPage
@@ -166,7 +150,9 @@ export const TableRow: React.FC = () => {
                     </a>
                   </td>
                   <td className="action-cell">
-                    <button className="action-btn view-btn">👁</button>
+                    <button className="action-btn view-btn">
+                      <Eye />
+                    </button>
                     <button className="action-btn menu-btn">⋮</button>
                   </td>
                 </tr>
@@ -177,7 +163,7 @@ export const TableRow: React.FC = () => {
 
       <div className="pagination-container">
         <div className="pagination-info">
-          Showing {startEntry} to {endEntry} of {sampleData.length} entries
+          Showing {startEntry} to {endEntry} of {sortedData.length} entries
         </div>
         <div className="pagination">
           <button
@@ -234,4 +220,4 @@ export const TableRow: React.FC = () => {
       </div>
     </div>
   );
-};
+}

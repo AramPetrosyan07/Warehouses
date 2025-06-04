@@ -3,8 +3,8 @@ import { Row } from "../../../assets/icons/warehouses/Row";
 import { Card } from "../../../assets/icons/warehouses/Card";
 import styles from "./Listcard.module.scss";
 
-export const Listcard = () => {
-  const [selected, setSelected] = React.useState<"row" | "card">("row");
+export const Listcard = ({ setSelected, selected }: any) => {
+  // const [selected, setSelected] = React.useState<"row" | "card">("row");
 
   return (
     <div className={styles.container}>

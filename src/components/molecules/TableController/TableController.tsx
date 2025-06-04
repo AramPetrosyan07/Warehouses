@@ -5,7 +5,7 @@ import NumberSelector from "../../atoms/NumberSelector/NumberSelector";
 import { Text } from "../../atoms/typography/Text/Text";
 import styles from "./TableController.module.scss";
 
-const TableController = () => {
+const TableController = ({ setSelected, selected }: any) => {
   return (
     <div className={styles.container}>
       <div className={styles.left_controller}>
@@ -25,7 +25,7 @@ const TableController = () => {
       </div>
       <div className={styles.right_controller}>
         <div className={styles.table_controller}>
-          <Listcard />
+          <Listcard setSelected={setSelected} selected={selected} />
         </div>
         <div className={styles.table_controller}>
           <Button
