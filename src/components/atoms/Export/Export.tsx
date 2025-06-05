@@ -5,7 +5,7 @@ import styles from "./Export.module.scss";
 
 const Export = () => {
   return (
-    <div className={styles.export}>
+    <button className={styles.export}>
       <ExportArrow />
       <Text
         variant="body2"
@@ -14,7 +14,7 @@ const Export = () => {
       >
         Export PDF
       </Text>
-    </div>
+    </button>
   );
 };
 

@@ -90,77 +90,78 @@ export function TableRow() {
   const endEntry = Math.min(currentPage * entriesPerPage, sortedData.length);
 
   return (
-    <div className="data-table-container">
-      <div className="table-wrapper">
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th onClick={() => handleSort("id")} className="sortable">
-                <span className="sort_lable">H/H</span>
+    <>
+      <div className="data-table-container">
+        <div className="table-wrapper">
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th onClick={() => handleSort("id")} className="sortable">
+                  <span className="sort_lable">H/H</span>
 
-                {getSortArrows("id")}
-              </th>
-              <th onClick={() => handleSort("name")} className="sortable">
-                <span className="sort_lable">Name</span>
+                  {getSortArrows("id")}
+                </th>
+                <th onClick={() => handleSort("name")} className="sortable">
+                  <span className="sort_lable">Name</span>
 
-                {getSortArrows("name")}
-              </th>
-              <th
-                onClick={() => handleSort("organization")}
-                className="sortable"
-              >
-                <span className="sort_lable">Organization</span>
+                  {getSortArrows("name")}
+                </th>
+                <th
+                  onClick={() => handleSort("organization")}
+                  className="sortable"
+                >
+                  <span className="sort_lable">Organization</span>
 
-                {getSortArrows("organization")}
-              </th>
-              <th onClick={() => handleSort("address")} className="sortable">
-                <span className="sort_lable">Address</span>
+                  {getSortArrows("organization")}
+                </th>
+                <th onClick={() => handleSort("address")} className="sortable">
+                  <span className="sort_lable">Address</span>
 
-                {getSortArrows("address")}
-              </th>
-              <th onClick={() => handleSort("worker")} className="sortable">
-                <span className="sort_lable">Worker</span>
-                {getSortArrows("worker")}
-              </th>
-              <th onClick={() => handleSort("products")} className="sortable">
-                <span className="sort_lable">Products</span>
+                  {getSortArrows("address")}
+                </th>
+                <th onClick={() => handleSort("worker")} className="sortable">
+                  <span className="sort_lable">Worker</span>
+                  {getSortArrows("worker")}
+                </th>
+                <th onClick={() => handleSort("products")} className="sortable">
+                  <span className="sort_lable">Products</span>
 
-                {getSortArrows("products")}
-              </th>
+                  {getSortArrows("products")}
+                </th>
 
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {sortedData
-              .slice(
-                (currentPage - 1) * entriesPerPage,
-                currentPage * entriesPerPage
-              )
-              .map((row) => (
-                <tr key={row.id}>
-                  <td>{row.id}</td>
-                  <td>{row.name}</td>
-                  <td>{row.organization}</td>
-                  <td>{row.address}</td>
-                  <td>{row.worker}</td>
-                  <td>
-                    <a href="#" className="product-link">
-                      {row.products}
-                    </a>
-                  </td>
-                  <td className="action-cell">
-                    <button className="action-btn view-btn">
-                      <Eye />
-                    </button>
-                    <button className="action-btn menu-btn">⋮</button>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sortedData
+                .slice(
+                  (currentPage - 1) * entriesPerPage,
+                  currentPage * entriesPerPage
+                )
+                .map((row) => (
+                  <tr key={row.id}>
+                    <td>{row.id}</td>
+                    <td>{row.name}</td>
+                    <td>{row.organization}</td>
+                    <td>{row.address}</td>
+                    <td>{row.worker}</td>
+                    <td>
+                      <a href="#" className="product-link">
+                        {row.products}
+                      </a>
+                    </td>
+                    <td className="action-cell">
+                      <button className="action-btn view-btn">
+                        <Eye />
+                      </button>
+                      <button className="action-btn menu-btn">⋮</button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-
       <div className="pagination-container">
         <div className="pagination-info">
           Showing {startEntry} to {endEntry} of {sortedData.length} entries
@@ -218,6 +219,6 @@ export function TableRow() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

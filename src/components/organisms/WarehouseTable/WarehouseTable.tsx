@@ -21,8 +21,6 @@ export const WarehouseTable = () => {
     <div className={styles.container}>
       <TableController setSelected={handleViewChange} selected={selected} />
       {selected === "row" ? <TableRow /> : <TableCard />}
-      {/* <TableRow /> */}
-      {/* <TableCard /> */}
     </div>
   );
 };
