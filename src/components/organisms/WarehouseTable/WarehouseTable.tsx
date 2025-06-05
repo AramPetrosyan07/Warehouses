@@ -1,13 +1,6 @@
-import React, {
-  Suspense,
-  useState,
-  useCallback,
-  useEffect,
-  useMemo,
-} from "react";
+import React, { Suspense, useState, useCallback, useEffect } from "react";
 import TableController from "../../molecules/TableController/TableController";
 import styles from "./WarehouseTable.module.scss";
-import { useAppSelector } from "../../../hooks/redux";
 import { Loading } from "../../atoms/Loading/Loading";
 
 const TableCard = React.lazy(() =>
@@ -29,8 +22,6 @@ const getInitialView = (): ViewType => {
 };
 
 export const WarehouseTable = () => {
-  const loading = useAppSelector((state) => state.users.loading);
-
   const [selected, setSelected] = useState<ViewType>(getInitialView);
 
   const handleViewChange = useCallback((view: ViewType) => {

@@ -1,5 +1,3 @@
-// src/components/Loading.jsx
-import React from "react";
 import "./Loading.scss";
 
 export const Loading = () => {
