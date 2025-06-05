@@ -139,7 +139,7 @@ export function TableRow() {
                   currentPage * entriesPerPage
                 )
                 .map((row) => (
-                  <tr key={row.id}>
+                  <tr key={row.id} className="data-row">
                     <td>{row.id}</td>
                     <td>{row.name}</td>
                     <td>{row.organization}</td>

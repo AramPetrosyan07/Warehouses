@@ -7,6 +7,18 @@
   border: $gray-40 1px solid;
   overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $gray-10; // Light gray on hover
+  }
+
+  &:active {
+    background-color: white; // Darker gray when clicked
+}
+
 }
 
 .card-header {
