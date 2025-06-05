@@ -10,7 +10,6 @@ Getting Started
 Customizing Configuration
 Project Specifics
 Contributing
-License
 
 3. Project Overview
 
@@ -22,6 +21,7 @@ React Router DOM v7 – For SPA routing/navigation
 Axios – For making HTTP API requests
 SCSS – Preprocessor used for modular, scalable styles
 TypeScript (optional) – Type safety and developer tooling
+Lazy Loading – Route-based code splitting using `React.lazy` and `Suspense`
 
 4. Project Structure
    The project was developed with atomic architecture
@@ -104,3 +104,7 @@ App runs at http://localhost:5173
    7.5 Styles
    SCSS modules and global styles are used for styling.
    Global styles live in the styles/ folder and are imported into main components.
+
+   7.6 Lazy Loading
+   The application implements lazy loading for route-based code splitting using `React.lazy` and `Suspense`.  
+   This improves performance by loading components only when needed.
